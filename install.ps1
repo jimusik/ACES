@@ -1,5 +1,5 @@
 #cxlogon installer
-new-module -name foobar -scriptblock {
+new-module -name cxlogon -scriptblock {
   $uri = "http://pub.nxfilter.org/cxlogon-win-1.0.4.msi"
   $file = 'cxlogon-win-1.0.4.msi'
   $temp = $Env:windir + "\Temp\"
@@ -15,11 +15,7 @@ Function WriteLog {
   Add-content $logfile -value $LogMessage
 }
 
-Function Install-Project() {
-  param (
-    [string]$project = 'chef',
-    [string]$channel = 'stable'
-  )
+Function Install-Project {
 
   #Start-Transcript -Append $logdump
 
