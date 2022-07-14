@@ -39,5 +39,5 @@ Function Install-Project {
 
   set-alias install -value Install-Project
 
-  export-modulemember -function 'Install-Project','WriteLog' -alias 'install'
+  export-modulemember -function 'WriteLog' -alias 'install'
 }
