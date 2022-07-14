@@ -1176,10 +1176,7 @@ Function Install-LTService{
                 If ($Svr -match '^(https?://)?(([12]?[0-9]{1,2}\.){3}[12]?[0-9]{1,2}|[a-z0-9][a-z0-9_-]*(\.[a-z0-9][a-z0-9_-]*)*)$') {
                     If ($Svr -notmatch 'https?://.+') {$Svr = "http://$($Svr)"}
                     Try {
-                        If ($PSCmdlet.ParameterSetName -eq 'installertoken') {
-                            Write-Debug "Line $(LINENUM): Skipping Server Version Check. Using Installer Token for download."
-                            $installer = "$($Svr)/LabTech/Deployment.aspx?InstallerToken=$InstallerToken"
-                        } Else {
+                        If {
                             $SvrVerCheck = "$($Svr)/LabTech/Agent.aspx"
                             Write-Debug "Line $(LINENUM): Testing Server Response and Version: $SvrVerCheck"
                             $SvrVer = $Script:LTServiceNetWebClient.DownloadString($SvrVerCheck)
