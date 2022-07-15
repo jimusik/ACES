@@ -1,4 +1,5 @@
 echo off
+set tm=%TIME::=-%
 reg add hklm\software\microsoft\windows\currentversion\run /v mapdrive /t REG_SZ /d c:\scripts\netuse.bat /f
 if exist c:\scripts (
   goto next
@@ -7,7 +8,7 @@ if exist c:\scripts (
   )
 :next
 if exist c:\scripts\netuse.bat (
-  cp c:\scripts\netuse.bat c:\scripts\netuse%time%.bat
+  copy c:\scripts\netuse.bat c:\scripts\netuse%tm%.bat
   del c:\scripts\netuse.bat
   )
 echo @echo off > c:\scripts\netuse.bat
