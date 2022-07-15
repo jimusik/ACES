@@ -4,20 +4,8 @@ new-module -name cxlogon -scriptblock {
   $file = 'cxlogon-win-1.0.4.msi'
   $temp = $Env:windir + "\Temp\"
   $soft_name = 'cxlogon'
-  $logfile = $temp + "cxlogoninstaller.log"
-  $logdump = $temp + "cxlogondump.log"
-
-
-Function WriteLog {
-  Param ([string]$LogString)
-  $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
-  $LogMessage = "$Stamp $LogString"
-  Add-content $logfile -value $LogMessage
-}
 
 Function Install-Project {
-
-  #Start-Transcript -Append $logdump
 
   $find = Get-WmiObject -Class Win32_Product -Filter "Name LIKE `'$soft_name`'"
 
@@ -27,17 +15,16 @@ Function Install-Project {
     $client.DownloadFile($uri, $tmp)
 
     msiexec /i $tmp /qn
-    WriteLog "Tried installing $soft_name"
+    Echo "Tried installing $soft_name"
   } else {
-    WriteLog "ERROR: $soft_name is already installed."
-    WriteLog $find
+    Echo "ERROR: $soft_name is already installed."
+    Echo $find
 
   }
-  #Stop-Transcript
 
   }
 
   set-alias install -value Install-Project
 
-  export-modulemember -function 'WriteLog' -alias 'install'
+  export-modulemember -function 'Install-Project' -alias 'install'
 }
