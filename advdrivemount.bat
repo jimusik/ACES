@@ -1,6 +1,10 @@
 echo off
 reg add hklm\software\microsoft\windows\currentversion\run /v mapdrive /t REG_SZ /d c:\scripts\netuse.bat /f
 mkdir c:\scripts
+if exists c:\scripts\netuse.bat (
+  cp c:\scripts\netuse.bat c:\scripts\netuse%time%.bat
+  del c:\scripts\netuse.bat
+  )
 echo @echo off > c:\scripts\netuse.bat
 echo net use * /delete /yes >> c:\scripts\netuse.bat
 echo call :checkcall 192.168.8. mount >> c:\scripts\netuse.bat
