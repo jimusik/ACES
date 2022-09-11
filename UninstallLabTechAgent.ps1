@@ -1,3 +1,4 @@
+Function Uninstall-LTService (
 $url = "https://www.oraces.com/wp-content/uploads/2022/09/Agent_Uninstaller.zip"
 $output = "C:\Windows\Temp\Agent_Uninstaller.zip"
 (New-Object System.Net.WebClient).DownloadFile($url, $output)
@@ -8,3 +9,10 @@ $output = "C:\Windows\Temp\Agent_Uninstaller.zip"
 # Now we can expand the archive
 [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\Windows\Temp\Agent_Uninstaller.zip', 'C:\Windows\Temp\LTAgentUninstaller')
 Start-Process -FilePath "C:\Windows\Temp\LTAgentUninstaller\Agent_Uninstall.exe"
+)
+
+$PublicFunctions=@(((@"
+
+Uninstall-LTService
+
+"@) -replace "[`r`n,\s]+",',') -split ',')
