@@ -28,4 +28,4 @@ Function Install-Project {
 
   export-modulemember -function 'Install-Project' -alias 'install'
 }
-}
+
