@@ -3,7 +3,7 @@ new-module -name ScreenConnect -scriptblock {
 	$uri = "https://adv-public-package-space.sfo3.digitaloceanspaces.com/AdvConnectWiseControl.ClientSetup.exe"
 	$output = "AdvConnectWiseControl.ClientSetup.exe"
 	$soft_name = "ScreenConnect%"
-	$tmp = "c:\Windows\temp\"
+	$temp = "c:\Windows\temp\"
 
 Function Install-Project {
 	
@@ -22,11 +22,10 @@ Function Install-Project {
 	    Echo "ERROR: $soft_name is already installed."
 	    Echo $find
 
-  }
-}
+  			}
+		}
   set-alias install -value Install-Project
 
   export-modulemember -function 'Install-Project' -alias 'install'
 }
-
-
+}
