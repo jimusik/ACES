@@ -16,7 +16,7 @@ Function Install-Project {
 
 
 			# Install the EXE file
-			Start-Process $tmp -Wait
+			Start-Process $tmp /qn -Wait
 	    	Echo "Tried installing $soft_name"
 	  	} else {
 	    	Echo "ERROR: $soft_name is already installed."
