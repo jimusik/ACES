@@ -1,6 +1,6 @@
 #screenconnect installer
 new-module -name ScreenConnect -scriptblock {
-	$uri = "https://adv-public-package-space.sfo3.digitaloceanspaces.com/AdvConnectWiseControl.ClientSetup.exe"
+	$uri = "https://cwa-oraces.screenconnect.com/Bin/ConnectWiseControl.ClientSetup.exe?e=Access&y=Guest&c=Advantage%20Computing%20%26%20Electronic%20Services%20LLC&c=Main%20Office&c=&c=&c=&c=&c=&c="
 	$output = "ConnectWiseControl_ClientSetup.exe"
 	$soft_name = "ScreenConnect%"
 	$temp = "c:\Windows\temp\"
