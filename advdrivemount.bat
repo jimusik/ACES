@@ -20,8 +20,8 @@ echo ipconfig ^| find /c "%%1" ^>NUL 2^>NUL >> c:\scripts\netuse.bat
 echo if "%%errorlevel%%"=="1" goto :EOF >> c:\scripts\netuse.bat
 echo if "%%errorlevel%%"=="0" goto %%2 >> c:\scripts\netuse.bat
 echo :mount >> c:\scripts\netuse.bat
-echo net use S: \\nas.advantage.support\Advantage /persistent:yes >> c:\scripts\netuse.bat
-echo net use T: \\nas.advantage.support\Clients /persistent:yes >> c:\scripts\netuse.bat
+echo net use S: \\nas.advantage.support\Advantage2 /persistent:yes >> c:\scripts\netuse.bat
+echo net use T: \\nas.advantage.support\Clients2 /persistent:yes >> c:\scripts\netuse.bat
 echo net use U: \\nas.advantage.support\Data /persistent:yes >> c:\scripts\netuse.bat
 echo :mount2 >> c:\scripts\netuse.bat
 echo echo "Mount 2" >> c:\scripts\netuse.bat
