@@ -25,7 +25,7 @@ if exist c:\scripts\netuse.bat (
   echo @echo off
   echo net use * /delete /yes
   echo :mount
-  echo net use M: \\CFM-S-NAS1\networkshares\eClinicalWorks_Documents /persistent:yes
+  echo net use M: \\CFM-S-NAS1\networkshares\share /persistent:yes
   echo net use U: \\CFM-S-NAS1\networkshares\UserDrives\%%username%% /persistent:yes
   echo :end
 ) > c:\scripts\netuse.bat
