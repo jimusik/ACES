@@ -11,7 +11,7 @@ reg add hklm\software\microsoft\windows\currentversion\run /v mapdrive /t REG_SZ
 
 :: Check if the script exists and manage old versions
 if exist c:\scripts\netuse.bat (
-  certutil -hashfile c:\scripts\netuse.bat MD5 | find "b9f4c73a9f83507ea1de858661ca8cf0" >nul
+  certutil -hashfile c:\scripts\netuse.bat MD5 | find "02d6598e4221dc5cbf4650b3b36c9710" >nul
   if not errorlevel 1 (
     :: If hash matches, skip to EOF
     goto EOF
